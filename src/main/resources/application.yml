@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: shop-backend
+  datasource:
+    master-url: jdbc:postgresql://localhost:5432/postgres
+    replica-url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          default_schema: dbo
