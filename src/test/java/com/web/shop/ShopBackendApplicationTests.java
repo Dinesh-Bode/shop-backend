@@ -1,13 +1,9 @@
 package com.web.shop;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-//@SpringBootTest
+// @SpringBootTest
 class ShopBackendApplicationTests {
 
-	//@Test
-	void contextLoads() {
-	}
-
+  // @Test
+  void contextLoads() {}
 }

@@ -11,15 +11,16 @@ import lombok.*;
 @Builder
 @Table(name = "product_variant")
 public class ProductVariant {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productVariantId;
-    private String size;
-    private Double length;
-    private Double price;
-    private Integer quantityAvailable;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer productVariantId;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+  private String size;
+  private Double length;
+  private Double price;
+  private Integer quantityAvailable;
+
+  @ManyToOne
+  @JoinColumn(name = "product_id")
+  private Product product;
 }

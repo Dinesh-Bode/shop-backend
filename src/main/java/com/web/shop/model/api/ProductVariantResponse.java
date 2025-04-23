@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductVariantResponse {
-    private Integer productVariantId;
-    private String size;
-    private Double length;
-    private Double price;
-    private Integer quantityAvailable;
+  private Integer productVariantId;
+  private String size;
+  private Double length;
+  private Double price;
+  private Integer quantityAvailable;
 }

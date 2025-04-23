@@ -1,8 +1,7 @@
 package com.web.shop.model.api;
 
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 @Builder
 @Getter
@@ -10,9 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductResponse {
-    private Integer productId;
-    private String name;
-    private String description;
-    private List<String> images;
-    List<ProductVariantResponse> productVariants;
+  private Integer productId;
+  private String name;
+  private String description;
+  private List<String> images;
+  List<ProductVariantResponse> productVariants;
 }
