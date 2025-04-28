@@ -1,6 +1,5 @@
 package com.web.shop;
 
-
 // @SpringBootTest
 class ShopBackendApplicationTests {
 

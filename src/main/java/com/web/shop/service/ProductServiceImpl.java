@@ -9,6 +9,8 @@ import com.web.shop.repository.ProductRepository;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
   }
 
   @Override
-  public ProductResponse createProduct(ProductRequest productRequest) {
+  public ProductResponse createProduct(ProductRequest  productRequest) {
     Product product = getProductFromProductRequest(productRequest);
     product = productRepository.save(product);
     return ProductMapper.productProductResponseMapper(product);
