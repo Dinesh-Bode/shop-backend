@@ -6,6 +6,7 @@ import com.web.shop.model.api.UserRequest;
 import com.web.shop.model.table.User;
 import com.web.shop.repository.UserRepository;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
   @Autowired private UserRepository userRepository;
+  // private final PasswordEncoder passwordEncoder; // you should have PasswordEncoder bean
+  // configured
 
   public User createUser(UserRequest userRequest) throws Exception {
     if (isUserExists(userRequest)) {
@@ -25,7 +28,6 @@ public class UserService {
               + " already present");
     }
     User user = UserMapper.userRequestUserMapper(userRequest);
-    user.setIsVerified(false); // default
     return userRepository.save(user);
   }
 
@@ -46,7 +48,6 @@ public class UserService {
               user.setLastName(updatedUser.getLastName());
               user.setEmail(updatedUser.getEmail());
               user.setPhoneNumber(updatedUser.getPhoneNumber());
-              user.setIsVerified(updatedUser.getIsVerified());
               return userRepository.save(user);
             })
         .orElseThrow(() -> new RuntimeException("User not found"));
@@ -61,5 +62,16 @@ public class UserService {
         userRepository.findByEmailOrPhoneNumber(
             userRequest.getEmail(), userRequest.getPhoneNumber());
     return userOptional.isPresent() && !userOptional.get().isEmpty();
+  }
+
+  public User login(String email, String password) throws Exception {
+    User user =
+        userRepository.findByEmail(email).orElseThrow(() -> new Exception("User not found"));
+
+    if (!Objects.equals(password, user.getPassword())) {
+      throw new Exception("Invalid password");
+    }
+
+    return user;
   }
 }

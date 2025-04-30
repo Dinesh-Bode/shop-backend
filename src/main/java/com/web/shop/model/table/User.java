@@ -19,5 +19,5 @@ public class User {
   String phoneNumber;
   String firstName;
   String lastName;
-  Boolean isVerified;
+  String password;
 }

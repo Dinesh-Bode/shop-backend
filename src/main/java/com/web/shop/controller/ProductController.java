@@ -4,9 +4,8 @@ import com.web.shop.model.api.ApiResponse;
 import com.web.shop.model.api.ProductRequest;
 import com.web.shop.model.api.ProductResponse;
 import com.web.shop.service.ProductService;
-import java.util.List;
-
 import jakarta.validation.Valid;
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
